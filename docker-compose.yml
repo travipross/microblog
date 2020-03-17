@@ -1,0 +1,15 @@
+version: '2.2'
+services: 
+  elasticsearch:
+    image: elasticsearch:7.6.1
+    environment: 
+      - discovery.type=single-node
+      - xpack.ml.enabled=false
+    ports:
+      - 9200:9200
+    networks:
+      - elastic
+
+networks:
+  elastic:
+    driver: bridge
